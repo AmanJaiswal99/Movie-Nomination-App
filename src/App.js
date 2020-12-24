@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import Axios from 'axios'
 import './App.css';
 import Movie from './Components/Movie'
+import Navbar from './Components/Navbar'
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Nomination from './Nomination'
 
 
@@ -28,7 +30,7 @@ function App() {
 
   
   async function getMovies(){
-    const res = await Axios.get(`http://www.omdbapi.com/?apikey=9946a5a3&?&t=` + name+'?')
+    const res = await Axios.get(`https://www.omdbapi.com/?apikey=9946a5a3&?&t=` + name+'?')
     
     console.log(res)
     await setData(res.data)
@@ -45,21 +47,27 @@ async function inserting(e){
 }
 
  return (
+   <Router>
   <div className="app">
+    <Navbar/>
+    <Route exact path='/'>
     <div className="search">
   
-      <input id='searchbar'type="text" onChange={inserting}/>
-      <button id='btn' type='submit'onClick={run}>click me</button>
+      <input id='searchbar'type="text" placeholder='Enter movie name'onChange={inserting}/>
+      <button id='btn' type='submit'onClick={run}>Search</button>
 
-     </div>
+    </div>
 
-     <div className="search-result">
-       {result?<Movie img={poster} title={title}year={year}/>:<p>Nothing to display</p>}
-        
-     </div>
+    <div className="search-result">
+        {result?<Movie img={poster} title={title}year={year}/>:<p>Nothing to display</p>}
+    </div>
+    </Route>
+    <Route path='/nominations'>
+      <Nomination/>
+    </Route>
   
   </div>
-  
+  </Router>
 
   );
 }
