@@ -10,7 +10,7 @@ import Nomination from './Nomination'
 function App() {
 
   const[data,setData] = useState()
-  const[name,setName] = useState('undefined')
+  const[name,setName] = useState()
   const[input,setInput] = useState()
   const[title,setTitle] = useState()
   const[year,setYear] = useState()
@@ -24,7 +24,7 @@ function App() {
     await setName(input)
  
     getMovies()
-    setResult(true)
+    
  
   }
 
@@ -32,12 +32,12 @@ function App() {
   async function getMovies(){
     const res = await Axios.get(`https://www.omdbapi.com/?apikey=9946a5a3&?&t=` + name+'?')
     
-    console.log(res)
+  
     await setData(res.data)
     await setTitle(data.Title)
     await setYear(data.Year)
     await setPoster(data.Poster)
-    
+    setResult(true)
     
    
 }
@@ -54,7 +54,7 @@ async function inserting(e){
     <div className="search">
   
       <input id='searchbar'type="text" placeholder='Enter movie name'onChange={inserting}/>
-      <button id='btn' type='submit'onClick={run}>Search</button>
+      <button id='btn' type='submit'onClick={run}>Click to search</button>
 
     </div>
 

@@ -2,3 +2,13 @@
     object-fit: contain;
     height: 150px;
 }
+
+.card{
+    padding: 10px;
+    margin: 10px;
+    border: grey solid 0.5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
