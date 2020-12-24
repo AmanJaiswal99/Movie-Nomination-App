@@ -1,4 +1,5 @@
-# OMDB Movie search
+# OMDB Movie search 
+hosted at https://img-search-task-aman.netlify.app/
 
 Technology used - React JS
 
