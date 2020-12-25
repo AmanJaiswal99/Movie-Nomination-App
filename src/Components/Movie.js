@@ -16,7 +16,7 @@ function Movie({img,title,year}) {
             <img className='poster'src={img} alt=""/>
             <h3>{title}</h3>
             <h4>Released {year}</h4>
-            <button onClick={push}>Click twice to nominate</button>
+            <button onClick={push}>Nominate</button>
         </div>
     )
 }
