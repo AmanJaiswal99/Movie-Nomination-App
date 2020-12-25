@@ -1,4 +1,4 @@
-# OMDB Movie Search hosted @  https://img-search-task-aman.netlify.app/
+# OMDB Movie Search hosted @ https://omdb-movie-voting.netlify.app/
 
 Technology used - React JS
 State Managment - Context API
