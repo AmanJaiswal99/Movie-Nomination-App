@@ -3,6 +3,7 @@
 hosted @  https://img-search-task-aman.netlify.app/
 
 Technology used - React JS
+State Managment - Context API
 
 Instruction-
 Go to "src" folder > App.js (main file)

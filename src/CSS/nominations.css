@@ -1,0 +1,4 @@
+.nominations{
+    display: flex;
+    flex-wrap: wrap;
+}

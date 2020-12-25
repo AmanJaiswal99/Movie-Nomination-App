@@ -4,7 +4,8 @@ import './App.css';
 import Movie from './Components/Movie'
 import Navbar from './Components/Navbar'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
-import Nomination from './Nomination'
+import Nominations from './Components/Nominations';
+
 
 
 function App() {
@@ -52,12 +53,12 @@ function App() {
 
     <div className="search-result">
        {result?movies.map(item=>(
-        <Movie title={item.Title} img={item.Poster} year ={item.Year}/>
-       )):<p>nothing to display</p>}
+        <Movie id={item.imdbID} title={item.Title} img={item.Poster} year ={item.Year}/>
+       )):<p>Nothing to display</p>}
     </div>
     </Route>
     <Route path='/nominations'>
-      <Nomination/>
+      <Nominations/>
     </Route>
   
   </div>

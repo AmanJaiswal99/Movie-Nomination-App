@@ -3,6 +3,9 @@
  
   
 }
+body{
+  background-color: whitesmoke
+}
 
 .navbar{
   display: flex;
@@ -24,7 +27,8 @@ a{
 .search{
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 40px ;
+  
 }
 
 input{
@@ -34,7 +38,9 @@ input{
 }
 
 .search-result{
+  padding-left: 30px;
+  padding-right: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
