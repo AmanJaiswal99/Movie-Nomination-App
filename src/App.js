@@ -15,7 +15,7 @@ function App() {
   const[result,setResult] = useState(false)
 
         useEffect(() => {
-          if(name!==undefined){
+          if(name!==undefined&&name!==''){
             async function getdata(){
               const res = await Axios.get(`https://www.omdbapi.com/?apikey=9946a5a3&?&s=${name}&?t=${name}`)
                 
@@ -24,6 +24,9 @@ function App() {
                 setResult(true)
             }
             getdata()
+          }
+          else{
+            setResult(false)
           }
           
         }, [name])
