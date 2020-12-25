@@ -5,7 +5,7 @@ import Movie from './Components/Movie'
 import Navbar from './Components/Navbar'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Nominations from './Components/Nominations';
-
+import SearchIcon from '@material-ui/icons/Search';
 
 
 function App() {
@@ -48,13 +48,13 @@ function App() {
 
     <div className="search">
         <input type="text" placeholder='Enter movie name' id="userInput" />
-        <button id='btn' type='submit' onClick={show}>Click to search</button>
+        <button id='btn' className='searchbtn' type='submit' onClick={show}><SearchIcon/></button>
     </div>
 
     <div className="search-result">
        {result?movies.map(item=>(
         <Movie id={item.imdbID} title={item.Title} img={item.Poster} year ={item.Year}/>
-       )):<p>Nothing to display</p>}
+       )):<small>Search something to display</small>}
     </div>
     </Route>
     <Route path='/nominations'>
