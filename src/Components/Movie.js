@@ -20,7 +20,7 @@ function Movie({id,img,title,year}) {
                 year:year,
             },
         })
-       const disabling = document.getElementById('nombtnid')
+       const disabling = document.getElementById(id)
        disabling.setAttribute('disabled','disabled')
        disabling.textContent ='Nominated'
        disabling.style.backgroundColor='green'
@@ -32,7 +32,7 @@ function Movie({id,img,title,year}) {
             <img className='poster'src={img} alt=""/>
             <h3>{title}</h3>
             <h4>Released {year}</h4>
-            <button id='nombtnid'className='nombtn' onClick={nominateit}>Nominate</button>
+            <button id={id} className='nombtn' onClick={nominateit}>Nominate</button>
         </div>
     )
 }
