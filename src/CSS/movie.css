@@ -23,3 +23,8 @@
     font-size: large;
 }
 
+.nombtn:hover{
+    transition: 200ms ease-in-out;
+    transform: scale(1.05);
+}
+

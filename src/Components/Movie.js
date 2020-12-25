@@ -7,7 +7,9 @@ import {useStateValue} from '../StateProvider'
 function Movie({id,img,title,year}) {
 
    const[{nominations},dispatch] = useStateValue()
-   console.log(nominations)
+
+   
+  console.log(nominations)
    const nominateit = () => {
         dispatch({
             type: 'ADD',
@@ -18,6 +20,10 @@ function Movie({id,img,title,year}) {
                 year:year,
             },
         })
+       const disabling = document.getElementById('nombtnid')
+       disabling.setAttribute('disabled','disabled')
+       disabling.textContent ='Nominated'
+       disabling.style.backgroundColor='green'
    }
 
 
@@ -26,7 +32,7 @@ function Movie({id,img,title,year}) {
             <img className='poster'src={img} alt=""/>
             <h3>{title}</h3>
             <h4>Released {year}</h4>
-            <button className='nombtn' onClick={nominateit}>Nominate</button>
+            <button id='nombtnid'className='nombtn' onClick={nominateit}>Nominate</button>
         </div>
     )
 }

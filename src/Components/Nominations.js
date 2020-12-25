@@ -9,7 +9,7 @@ function Nominations() {
     return (
         <div className='nominations'>
            {nominations.map(item=>(
-               <NominatedMovie title={item.title} img={item.image} year={item.year}/>
+               <NominatedMovie id={item.id} title={item.title} img={item.image} year={item.year}/>
            ))}
         </div>
     )
