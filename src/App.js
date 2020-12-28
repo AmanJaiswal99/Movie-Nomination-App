@@ -3,7 +3,7 @@ import Axios from 'axios'
 import './App.css';
 import Movie from './Components/Movie'
 import Navbar from './Components/Navbar'
-import {BrowserRouter as Router,Route} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Nominations from './Components/Nominations';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -40,17 +40,26 @@ function App() {
 
         }
 
+        const clear = () => {
+          document.getElementById('userInput').value = ''
+          show()
+        }
+
  return (
    <Router>
   <div className="app">
     <Navbar/>
+    <Switch>
     <Route exact path='/'>
 
     <div className="search">
         <input type="text" placeholder='Enter movie name' id="userInput" />
         <button id='btn' className='searchbtn' type='submit' onClick={show}><SearchIcon/></button>
+        
+     {result? <button className='clearbtn' onClick={clear}>Clear X</button>:null}
     </div>
-
+    
+   
     <div className="search-result">
        {result?movies.map(item=>(
         <Movie id={item.imdbID} title={item.Title} img={item.Poster} year ={item.Year}/>
@@ -60,7 +69,7 @@ function App() {
     <Route path='/nominations'>
       <Nominations/>
     </Route>
-  
+    </Switch>
   </div>
   </Router>
 
