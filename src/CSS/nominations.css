@@ -1,6 +1,7 @@
 .nominations{
     display: flex;
     flex-wrap: wrap;
+   
 }
 
 .nom-heading{

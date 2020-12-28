@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../CSS/movie.css'
 import {useStateValue} from '../StateProvider'
 
@@ -7,7 +7,7 @@ import {useStateValue} from '../StateProvider'
 function Movie({id,img,title,year}) {
 
    const[{nominations},dispatch] = useStateValue()
-
+    const[disabled,setDisabled] = useState(false)
    
   console.log(nominations)
    const nominateit = () => {
@@ -20,12 +20,15 @@ function Movie({id,img,title,year}) {
                 year:year,
             },
         })
-       const disabling = document.getElementById(id)
-       disabling.setAttribute('disabled','disabled')
-       disabling.textContent ='Nominated'
-       disabling.style.backgroundColor='green'
+     setDisabled(true)
    }
 
+   if(disabled){
+    const disabling = document.getElementById(id)
+    disabling.setAttribute('disabled','disabled')
+    disabling.textContent ='Nominated'
+    disabling.style.backgroundColor='green'
+   }
 
     return (
         <div className='card'>
