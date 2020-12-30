@@ -60,10 +60,8 @@ function App() {
     <div className="search">
         <input type="text" placeholder='Enter movie name' id="userInput" />
         <button id='btn' className='searchbtn' type='submit' onClick={show}><SearchIcon/></button>
-        
-     {result? <button className='clearbtn' onClick={clear}>Clear X</button>:null}
     </div>
-    
+    {result? <button className='clearbtn' onClick={clear}>Clear X</button>:null}
    
     <div className="search-result">
        {result?movies.map(item=>(
