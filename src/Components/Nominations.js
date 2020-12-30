@@ -8,11 +8,13 @@ function Nominations() {
 
     return (
         <>
-        <h3 className='nom-heading'>The Movies Nominated are:</h3>
+        <h2 className='nom-heading'>NOMINATIONS</h2>
         <div className='nominations'>
-           {nominations.map(item=>(
-               <NominatedMovie id={item.id} title={item.title} img={item.image} year={item.year}/>
-           ))}
+           {nominations.length===0?<small>You haven't nominated any movies yet</small>:
+           nominations.map(item=>(
+            <NominatedMovie id={item.id} title={item.title} img={item.image} year={item.year}/>
+        ))}
+        
         </div>
         </>
     )

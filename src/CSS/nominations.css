@@ -1,9 +1,14 @@
 .nominations{
     display: flex;
     flex-wrap: wrap;
+   justify-content: center;
    
 }
 
 .nom-heading{
     margin: 20px;
+    font-weight: 700;
+    text-align: center;
+    font-family: cursive;
 }
+

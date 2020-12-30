@@ -10,23 +10,29 @@ import SearchIcon from '@material-ui/icons/Search';
 
 function App() {
 
+  
 
   const[movies,setMovies] = useState([])
   const[name,setName] = useState()
   const[result,setResult] = useState(false)
   const[loading,setLoading] = useState(false)
+
         useEffect(() => {
           if(name!==undefined&&name!==''){
             async function getdata(){
               const res = await Axios.get(`https://www.omdbapi.com/?apikey=9946a5a3&?&s=${name}&?t=${name}`)
-                
-                setMovies(res.data.Search)
-                console.log(movies)
-                
-                  setResult(true)
-                 
-               
-            }
+              setMovies(res.data.Search)
+                  console.log(res.data.Search)
+                  if(res.data.Search!==undefined){
+                    
+                    setResult(true)
+                  }
+                  else{
+                    setLoading(false)
+                    setTimeout(function(){ alert("We couldn't find the movie, try a different name"); }, 500);
+                  }
+                  
+           }
             getdata()
           }
           else{
@@ -38,16 +44,20 @@ function App() {
         
      
 
-      function show(){
-  setName(document.getElementById('userInput').value)
-        setLoading(true)
-        }
+        function show(){
+          let input = document.getElementById('userInput').value
+          if(input===''){
+            setTimeout(function(){ alert("You must give a name"); }, 500);
+          }else{
+            setName(input)
+            setLoading(true)
+          }
+         }
 
         const clear = () => {
-          
-          document.getElementById('userInput').value = ''
-          show()
+          setName('')
           setLoading(false)
+          document.getElementById('userInput').value=''
         }
 
  return (
