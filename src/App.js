@@ -14,7 +14,7 @@ function App() {
   const[movies,setMovies] = useState([])
   const[name,setName] = useState()
   const[result,setResult] = useState(false)
-
+  const[loading,setLoading] = useState(false)
         useEffect(() => {
           if(name!==undefined&&name!==''){
             async function getdata(){
@@ -22,7 +22,10 @@ function App() {
                 
                 setMovies(res.data.Search)
                 console.log(movies)
-                setResult(true)
+                
+                  setResult(true)
+                 
+               
             }
             getdata()
           }
@@ -37,12 +40,14 @@ function App() {
 
       function show(){
   setName(document.getElementById('userInput').value)
-
+        setLoading(true)
         }
 
         const clear = () => {
+          
           document.getElementById('userInput').value = ''
           show()
+          setLoading(false)
         }
 
  return (
@@ -63,7 +68,7 @@ function App() {
     <div className="search-result">
        {result?movies.map(item=>(
         <Movie id={item.imdbID} title={item.Title} img={item.Poster} year ={item.Year}/>
-       )):<small>Search something to display</small>}
+       )):<small>{loading?<p>loading...</p>:<p>Search something to display</p>}</small>}
     </div>
     </Route>
     <Route path='/nominations'>
