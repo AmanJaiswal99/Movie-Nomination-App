@@ -1,16 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import '../CSS/movie.css'
 import {useStateValue} from '../StateProvider'
-
-
 
 function Movie({id,img,title,year}) {
 
    const[{nominations},dispatch] = useStateValue()
-    const[disabled,setDisabled] = useState(false)
+
    
+    
   console.log(nominations)
    const nominateit = () => {
+       
         dispatch({
             type: 'ADD',
             item:{
@@ -20,17 +20,17 @@ function Movie({id,img,title,year}) {
                 year:year,
             },
         })
-     setDisabled(true)
-   }
+        
+        var disabling = document.getElementById(id)
+        disabling.setAttribute('disabled','disabled')
+        disabling.textContent ='Nominated'
+        disabling.style.backgroundColor='green'  
+        
+    }
+    
 
-   if(disabled){
-    const disabling = document.getElementById(id)
-    disabling.setAttribute('disabled','disabled')
-    disabling.textContent ='Nominated'
-    disabling.style.backgroundColor='green'
-   }
-
-    return (
+   
+   return (
         <div className='card'>
             <img className='poster'src={img} alt=""/>
             <h3>{title}</h3>

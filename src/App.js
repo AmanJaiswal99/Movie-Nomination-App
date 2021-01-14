@@ -10,12 +10,14 @@ import SearchIcon from '@material-ui/icons/Search';
 
 function App() {
 
-  
-
+ 
   const[movies,setMovies] = useState([])
   const[name,setName] = useState()
   const[result,setResult] = useState(false)
   const[loading,setLoading] = useState(false)
+
+
+    
 
         useEffect(() => {
           if(name!==undefined&&name!==''){
@@ -65,8 +67,8 @@ function App() {
   <div className="app">
     <Navbar/>
     <Switch>
-    <Route exact path='/'>
 
+    <Route exact path='/'>
     <div className="search">
         <input type="text" placeholder='Enter movie name' id="userInput" />
         <button id='btn' className='searchbtn' type='submit' onClick={show}><SearchIcon/></button>
@@ -79,9 +81,11 @@ function App() {
        )):<small>{loading?<p>loading...</p>:<p>Search something to display</p>}</small>}
     </div>
     </Route>
+
     <Route path='/nominations'>
       <Nominations/>
     </Route>
+
     </Switch>
   </div>
   </Router>

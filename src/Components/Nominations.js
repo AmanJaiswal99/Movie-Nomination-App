@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {useStateValue} from '../StateProvider'
 import NominatedMovie from '../Components/NominatedMovie'
 import '../CSS/nominations.css'
 
 function Nominations() {
     const[{nominations},dispatch] = useStateValue()
+    useEffect(() => {
+        if(nominations.length>5){
+            setTimeout(function(){alert("Please do not nominate more than 5 movies")},500)
+        }
+    }, [])
 
     return (
         <>
