@@ -10,7 +10,7 @@ function Movie({id,img,title,year}) {
     
   console.log(nominations)
    const nominateit = () => {
-       
+       if(nominations.length<5){
         dispatch({
             type: 'ADD',
             item:{
@@ -25,6 +25,12 @@ function Movie({id,img,title,year}) {
         disabling.setAttribute('disabled','disabled')
         disabling.textContent ='Nominated'
         disabling.style.backgroundColor='green'  
+       }
+       
+
+        else{
+            setTimeout(function(){alert("You can only have 5 nominations")},500)
+        }
         
     }
     
